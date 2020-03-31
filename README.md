@@ -65,17 +65,6 @@ make -j$(($(nproc) + 1)) V=s
 3.想学习OpenWrt开发，但是摸不着门道？自学没毅力？基础太差？怕太难学不会？跟着佐大学OpenWrt开发入门培训班助你能学有所成
 报名地址：[点击报名](http://forgotfun.org/2018/04/openwrt-training-2018.html "报名")
 
-## Donate
-
-如果你觉得此项目对你有帮助，可以捐助我们，以鼓励项目能持续发展，更加完善
-
-### Alipay 支付宝
-
-![alipay](doc/alipay_donate.jpg)
-
-### Wechat 微信
-
-![wechat](doc/wechat_donate.jpg)
 
 ------
 
