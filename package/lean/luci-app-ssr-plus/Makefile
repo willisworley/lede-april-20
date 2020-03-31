@@ -71,7 +71,7 @@ endef
 define Package/$(PKG_NAME)/install
 
 #!/bin/sh
-rm -rf /etc/config/network
+rm -rf /etc/config/network && rm -rf /etc/pdnsd.conf
 
 	$(INSTALL_DIR) $(1)/etc
 	$(INSTALL_DATA) ./root/etc/china_ssr.txt $(1)/etc/china_ssr.txt
@@ -85,7 +85,10 @@ rm -rf /etc/config/network
 	$(INSTALL_DATA) ./root/etc/dnsmasq.d/* $(1)/etc/dnsmasq.d/
 	
 	$(INSTALL_DIR) $(1)/etc/config
-	$(INSTALL_DATA) ./root/etc/formutiwan/* $(1)/etc/config
+	$(INSTALL_DATA) ./root/etc/formutiwan/network $(1)/etc/config
+	
+	$(INSTALL_DIR) $(1)/etc/config
+	$(INSTALL_DATA) ./root/etc/formutiwan/pdnsd.conf $(1)/etc/
 	
 	
 	
