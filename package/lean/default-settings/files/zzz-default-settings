@@ -1,6 +1,6 @@
 #!/bin/sh
 
-uci set luci.main.lang=zh_cn
+uci set luci.main.lang=en
 uci commit luci
 
 uci set system.@system[0].timezone=CST-8
@@ -31,7 +31,7 @@ ln -sf /sbin/ip /usr/bin/ip
 
 sed -i 's/downloads.openwrt.org/openwrt.proxy.ustclug.org/g' /etc/opkg/distfeeds.conf
 sed -i 's/http/https/g' /etc/opkg/distfeeds.conf
-sed -i 's/root::0:0:99999:7:::/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/g' /etc/shadow
+sed -i 's/root::0:0:99999:7:::/root:$1$Je43Lli2$4qj4Nw1xWPrs9WEtY8ArC1:0:0:99999:7:::/g' /etc/shadow
 
 sed -i "s/# //g" /etc/opkg/distfeeds.conf
 
