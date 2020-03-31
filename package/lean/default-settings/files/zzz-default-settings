@@ -33,6 +33,11 @@ sed -i 's/downloads.openwrt.org/openwrt.proxy.ustclug.org/g' /etc/opkg/distfeeds
 sed -i 's/http/https/g' /etc/opkg/distfeeds.conf
 sed -i 's/root::0:0:99999:7:::/root:$1$Je43Lli2$4qj4Nw1xWPrs9WEtY8ArC1:0:0:99999:7:::/g' /etc/shadow
 
+sed -i "s/'/luci-static/bootstrap'/'/luci-static/argon'/g" /etc/config/luci
+sed -i 's/zh_cn/en/g' /etc/config/luci
+
+        
+
 sed -i "s/# //g" /etc/opkg/distfeeds.conf
 
 sed -i '/REDIRECT --to-ports 53/d' /etc/firewall.user
