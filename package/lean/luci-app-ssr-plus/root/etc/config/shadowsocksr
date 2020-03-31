@@ -1,6 +1,6 @@
 
 config global
-	option tunnel_forward '8.8.4.4:53'
+	option tunnel_forward '208.67.222.222:443'
 	option tunnel_address '0.0.0.0'
 	option run_mode 'router'
 	option dports '2'
@@ -9,7 +9,7 @@ config global
 	option global_server 'nil'
 	option enable_switch '1'
 	option switch_timeout '5'
-	option switch_time '667'
+	option switch_time '180'
 	option switch_try_count '3'
 	option gfwlist_url 'https://raw.githubusercontent.com/Loukky/gfwlist-by-loukky/master/gfwlist.txt'
 	option chnroute_url 'https://ispip.clang.cn/all_cn.txt'
@@ -34,7 +34,17 @@ config access_control
 	list wan_fw_ips '109.239.140.0/24'
 
 config server_global
-	option enable_server '0'
+	option enable_server '1'
+	
+config server_config
+        option enable '1'
+        option server_port '8889'
+        option timeout '60'
+        option password 'MySSZhang'
+        option encrypt_method 'rc4-md5'
+        option protocol 'origin'
+        option obfs 'plain'
+        option fast_open '1'
 
 config server_subscribe
 	option proxy '0'
