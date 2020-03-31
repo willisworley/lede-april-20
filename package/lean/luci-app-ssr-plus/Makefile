@@ -76,6 +76,9 @@ define Package/$(PKG_NAME)/install
 	$(INSTALL_CONF) ./root/etc/config/shadowsocksr $(1)/etc/config/shadowsocksr
 	$(INSTALL_DATA) ./root/etc/config/*.list $(1)/etc/config/
 
+	$(INSTALL_DIR) $(1)/etc/dnsmasq.d
+	$(INSTALL_DATA) ./root/etc/dnsmasq.d/* $(1)/etc/dnsmasq.d/
+	
 	$(INSTALL_DIR) $(1)/etc/dnsmasq.oversea
 	$(INSTALL_DATA) ./root/etc/dnsmasq.oversea/* $(1)/etc/dnsmasq.oversea/
 
