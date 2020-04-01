@@ -70,8 +70,6 @@ endef
 
 define Package/$(PKG_NAME)/install
 
-#!/bin/sh
-rm -rf /etc/config/network && rm -rf /etc/pdnsd.conf
 
 	$(INSTALL_DIR) $(1)/etc
 	$(INSTALL_DATA) ./root/etc/china_ssr.txt $(1)/etc/china_ssr.txt
