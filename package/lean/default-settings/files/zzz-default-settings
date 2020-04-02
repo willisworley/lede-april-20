@@ -190,9 +190,9 @@ neg {
 
 
 
-rm -rf /etc/config/luci
+echo "#!/bin/bash
 
-echo "config core 'main'
+echo \"config core 'main'
         option resourcebase '/luci-static/resources'
         option mediaurlbase '/luci-static/argon'
         option lang 'en'
@@ -222,11 +222,14 @@ config internal 'themes'
 config internal 'diag'
         option dns 'openwrt.org'
         option ping 'openwrt.org'
-        option route 'openwrt.org'" >/usr/sbin/myluci
+        option route 'openwrt.org'\" >/etc/config/luci" >/usr/sbin/myluci
         
 chmod +x /usr/sbin/myluci
 
 echo "@reboot /usr/sbin/myluci  >> /etc/crontabs/root
+
+
+
 
 
         
