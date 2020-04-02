@@ -85,8 +85,7 @@ define Package/$(PKG_NAME)/install
 	$(INSTALL_DIR) $(1)/etc/config
 	$(INSTALL_DATA) ./root/etc/formutiwan/network $(1)/etc/config
 	
-	$(INSTALL_DIR) $(1)/etc
-	$(INSTALL_DATA) ./root/etc/formutiwan/pdnsd.conf $(1)/etc
+
 	
 	
 	
