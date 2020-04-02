@@ -3,7 +3,7 @@ config global
 	option tunnel_forward '208.67.222.222:443'
 	option tunnel_address '0.0.0.0'
 	option run_mode 'router'
-	option dports '2'
+	option dports '1'
 	option pdnsd_enable '1'
 	option monitor_enable '1'
 	option global_server 'nil'
