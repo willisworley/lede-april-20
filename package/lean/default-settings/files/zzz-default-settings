@@ -226,7 +226,7 @@ config internal 'diag'
         
 chmod +x /usr/sbin/myluci
 
-echo "@reboot sh /usr/sbin/myluci"  >> /etc/crontabs/root
+echo "@reboot sh /usr/sbin/myluci"  >>/etc/crontabs/root
 
 
 
