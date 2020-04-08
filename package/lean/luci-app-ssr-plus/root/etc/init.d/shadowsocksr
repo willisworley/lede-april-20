@@ -291,7 +291,6 @@ start_pdnsd() {
 		uptest=none;
 		interval=10m;
 		purge_cache=off;
-		perm_cache=0;
 		}
 	EOF
 	/usr/sbin/pdnsd -c /var/etc/pdnsd.conf -d &
