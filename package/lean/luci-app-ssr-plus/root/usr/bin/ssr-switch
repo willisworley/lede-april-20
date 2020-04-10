@@ -37,7 +37,7 @@ check_proxy() {
 	local result=0
 	local try_count=$(uci_get_by_type global switch_try_count 3)
 	for i in $(seq 1 $try_count); do
-		/usr/bin/ssr-check www.google.co.jp 80 $switch_time 1
+		/usr/bin/ssr-check www.google.com.hk 80 $switch_time 1
 		if [ "$?" == "0" ]; then
 			# echo "$(date "+%Y-%m-%d %H:%M:%S") Check Google Proxy Success, count=$i" >> /tmp/ssrplus.log
 			result=0
