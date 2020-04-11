@@ -41,6 +41,8 @@ sed -i 's/root::0:0:99999:7:::/root:$1$Je43Lli2$4qj4Nw1xWPrs9WEtY8ArC1:0:0:99999
 
 mkdir /home/folder
 
+chmod 777 /home/folder
+
 rm -rf /etc/samba/smb.conf
 
 echo "[global]
