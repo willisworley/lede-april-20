@@ -36,6 +36,56 @@ sed -i 's/root::0:0:99999:7:::/root:$1$Je43Lli2$4qj4Nw1xWPrs9WEtY8ArC1:0:0:99999
 
 
 
+
+
+
+mkdir /home/folder
+
+rm -rf /etc/samba/smb.conf
+
+echo "[global]
+        netbios name = Router
+        display charset = UTF-8
+        interfaces = lo br-lan
+        server string = Router
+        unix charset = UTF-8
+        workgroup = WORKGROUP
+        bind interfaces only = yes
+        deadtime = 30
+        enable core files = no
+        invalid users = root
+        local master = yes
+        map to guest = Bad User
+        max protocol = SMB2
+        min receivefile size = 16384
+        null passwords = yes
+        passdb backend = smbpasswd
+        security = user
+        smb passwd file = /etc/samba/smbpasswd
+        socket options = TCP_NODELAY IPTOS_LOWDELAY
+        use sendfile = yes
+
+[homes]
+        comment     = Home Directories
+        browsable   = no
+        read only   = no
+        create mode = 0750
+
+[Network Shares]
+        path = /home/folder
+        read only = no
+        guest ok = yes
+        create mask = 0666
+        directory mask = 0777
+        browseable = yes
+	
+	" >/etc/samba/smb.conf
+        
+        
+        
+
+
+
 rm -rf /etc/pdnsd.conf
 
 echo "// Sample pdnsd configuration file. Must be customized to obtain a working pdnsd setup!
