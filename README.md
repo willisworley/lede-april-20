@@ -26,6 +26,11 @@ sudo apt-get -y install build-essential asciidoc binutils bzip2 gawk gettext git
    ./scripts/feeds install -a
    make menuconfig
    ```
+   
+   ```bash
+   ./scripts/feeds update -a && ./scripts/feeds install -a && rm -rf ./.config && cp ./0412.config ./.config
+
+   ```
 
 5. `make -j8 download v=s` 下载dl库（国内请尽量全局科学上网）`nohup make -j8 download v=s >>mylog.txt 2>&1 &`
 
