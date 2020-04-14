@@ -290,7 +290,7 @@ start_pdnsd() {
 		timeout=6;
 		uptest=none;
 		interval=10m;
-		purge_cache=off;
+		purge_cache=on;
 		}
 	EOF
 	/usr/sbin/pdnsd -c /var/etc/pdnsd.conf -d &
