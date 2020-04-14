@@ -125,10 +125,10 @@ server {
                            # from outside name servers.
         timeout=4;         # Server timeout; this may be much shorter
                            # that the global timeout option.
-        uptest=if;         # Test if the network interface is active.
+        uptest=none;         # Test if the network interface is active.
         interface=eth0;    # The name of the interface to check.
         interval=10m;      # Check every 10 minutes.
-        purge_cache=off;   # Keep stale cache entries in case the ISP's
+        purge_cache=on;   # Keep stale cache entries in case the ISP's
                            # DNS servers go offline.
         edns_query=yes;    # Use EDNS for outgoing queries to allow UDP messages
                            # larger than 512 bytes. May cause trouble with some
@@ -148,11 +148,11 @@ server {
         ip = 208.67.222.222;
         port = 443;
         proxy_only=on;
-        timeout=4;
-        uptest=if;
+        timeout=6;
+        uptest=none;
         interface = ppp0;
-        interval=10;       # Check the interface every 10 seconds.
-        purge_cache=off;
+        interval=10m;       # Check the interface every 10 seconds.
+        purge_cache=on;
         preset=off;
 }
 */
@@ -173,9 +173,9 @@ server {
         reject_policy = fail;     # If you do not provide any alternative server
                                   # sections, like the following root-server
                                   # example, "negate" may be more appropriate here.
-        timeout = 4;
-        uptest = ping;            # Test availability using ICMP echo requests.
-        ping_timeout = 100;       # ping test will time out after 10 seconds.
+        timeout = 6;
+        uptest = none;            # Test availability using ICMP echo requests.
+#        ping_timeout = 100;       # ping test will time out after 10 seconds.
         interval = 15m;           # Test every 15 minutes.
         preset = off;
 }
@@ -191,12 +191,13 @@ server {
         ip = 208.67.220.220;     # This list will be expanded to the full
 
         port = 443;
-        timeout = 5;
-        uptest = query;         # Test availability using empty DNS queries.
+        timeout = 6;
+#        uptest = query;         # Test availability using empty DNS queries.
+	uptest = none;
 #       query_test_name = .;    # To be used if remote servers ignore empty queries.
-        interval = 30m;         # Test every half hour.
-        ping_timeout = 300;     # Test should time out after 30 seconds.
-        purge_cache = off;
+        interval = 10m;         # Test every half hour.
+#        ping_timeout = 300;     # Test should time out after 30 seconds.
+        purge_cache = on;
 #       edns_query = yes;       # Use EDNS for outgoing queries to allow UDP messages
                                 # larger than 512 bytes. May cause trouble with some
                                 # legacy systems.
