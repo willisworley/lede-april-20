@@ -267,14 +267,14 @@ start_pdnsd() {
 	fi
 	cat <<-EOF >/var/etc/pdnsd.conf
 		global{
-		perm_cache=1024;
+		perm_cache=off;
 		cache_dir="/var/pdnsd";
 		pid_file="/var/run/pdnsd.pid";
 		run_as="nobody";
 		server_ip=127.0.0.1;
 		server_port=5335;
 		status_ctl=on;
-		query_method=tcp_only;
+		query_method=tcp_udp;
 		min_ttl=1;
 		max_ttl=1w;
 		timeout=10;
@@ -290,6 +290,7 @@ start_pdnsd() {
 		timeout=6;
 		uptest=none;
 		interval=10m;
+		caching=off;
 		purge_cache=on;
 		}
 	EOF
