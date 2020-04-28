@@ -28,7 +28,7 @@ sudo apt-get -y install build-essential asciidoc binutils bzip2 gawk gettext git
    ```
    
    ```bash
-   cd ./lede && rm -rf ./package/lean/luci-app-dockerman && mkdir -p package/luci-lib-docker && wget https://raw.githubusercontent.com/lisaac/luci-lib-docker/master/Makefile -O package/luci-lib-docker/Makefile && mkdir -p package/luci-app-dockerman && wget https://raw.githubusercontent.com/lisaac/luci-app-dockerman/master/Makefile -O package/luci-app-dockerman/Makefile && ./scripts/feeds update -a && ./scripts/feeds install -a && rm -rf ./.config && cp ./0417-nosamba-x86.config ./.config && make -j8 download v=s
+   cd ./lede && rm -rf ./package/lean/luci-app-dockerman && mkdir -p package/luci-lib-docker && wget https://raw.githubusercontent.com/lisaac/luci-lib-docker/master/Makefile -O package/luci-lib-docker/Makefile && mkdir -p package/luci-app-dockerman && wget https://raw.githubusercontent.com/lisaac/luci-app-dockerman/master/Makefile -O package/luci-app-dockerman/Makefile && ./scripts/feeds update -a && ./scripts/feeds install -a && rm -rf ./.config && cp ./0417-nosamba-x86.config ./.config && rm -rf ./package/lean/luci-app-diskman && mkdir -p package/luci-app-diskman && mkdir -p package/parted && wget https://raw.githubusercontent.com/lisaac/luci-app-diskman/master/Makefile -O package/luci-app-diskman/Makefile && wget https://raw.githubusercontent.com/lisaac/luci-app-diskman/master/Parted.Makefile -O package/parted/Makefile && make -j8 download v=s
     ```
    
     ```bash
