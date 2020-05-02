@@ -39,6 +39,8 @@ config access_control
 	list wan_fw_ips '34.101.0.0/16'
 	list wan_fw_ips '35.216.0.0/17'
 	list wan_fw_ips '34.64.0.0/16'
+	list wan_fw_ips '198.35.26.0/23'
+	list wan_fw_ips '103.102.166.0/24'
 
 config server_global
 	option enable_server '1'
