@@ -267,7 +267,7 @@ start_pdnsd() {
 	fi
 	cat <<-EOF >/var/etc/pdnsd.conf
 		global{
-		perm_cache=36;
+		perm_cache=54;
 		cache_dir="/var/pdnsd";
 		pid_file="/var/run/pdnsd.pid";
 		run_as="nobody";
