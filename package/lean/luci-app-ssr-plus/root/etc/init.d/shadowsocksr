@@ -257,8 +257,8 @@ start_pdnsd() {
 	local usr_dns="$1"
 	local usr_port="$2"
 	local tcp_dns_list="208.67.222.222"
-	[ -z "$usr_dns" ] && usr_dns="208.67.222.222"
-	[ -z "$usr_port" ] && usr_port="443"
+	[ -z "$usr_dns" ] && usr_dns="8.8.8.8"
+	[ -z "$usr_port" ] && usr_port="53"
 	[ -d /var/etc ] || mkdir -p /var/etc
 	if [ ! -d /var/pdnsd ]; then
 		mkdir -p /var/pdnsd
@@ -285,8 +285,10 @@ start_pdnsd() {
 		}
 		server{
 		label="ssr-usrdns";
-		ip=208.67.222.222,208.67.220.220;
-		port=443;
+		# Set default DNS to Google DNS, OpenDNS Loss packets.
+		#
+		ip=8.8.8.8,8.8.4.4;
+		port=53;
 		timeout=6;
 		uptest=none;
 		interval=10m;
@@ -410,12 +412,12 @@ start_redir() {
 			gen_config_file $NETFLIX_SERVER 2 4321
 			gen_config_file $NETFLIX_SERVER 3 1088
 			$sssock -c /var/etc/shadowsocksr_s.json $ARG_OTA -f /var/run/ssr-socksdns.pid >/dev/null 2>&1
-			dns2socks 127.0.0.1:1088 208.67.222.222:443 127.0.0.1:5555 -q >/dev/null 2>&1 &
+			dns2socks 127.0.0.1:1088 8.8.8.8:53 127.0.0.1:5555 -q >/dev/null 2>&1 &
 			$ncmd -c /var/etc/shadowsocksr_n.json $ARG_OTA -f /var/run/ssr-netflix.pid >/dev/null 2>&1
 		elif [ "$ntype" == "v2ray" ]; then
 			lua /usr/share/shadowsocksr/genv2config.lua $NETFLIX_SERVER tcp 4321 1088 >/var/etc/v2-ssr-netflix.json
 			$ncmd -config /var/etc/v2-ssr-netflix.json >/dev/null 2>&1 &
-			dns2socks 127.0.0.1:1088 208.67.222.222:443 127.0.0.1:5555 -q >/dev/null 2>&1 &
+			dns2socks 127.0.0.1:1088 8.8.8.8:53 127.0.0.1:5555 -q >/dev/null 2>&1 &
 		elif [ "$ntype" == "trojan" ]; then
 			lua /usr/share/shadowsocksr/gentrojanconfig.lua $NETFLIX_SERVER nat 4321 >/var/etc/trojan-ssr-netflix.json
 			sed -i 's/\\//g' /var/etc/trojan-ssr-netflix.json
@@ -423,19 +425,19 @@ start_redir() {
 			lua /usr/share/shadowsocksr/gentrojanconfig.lua $NETFLIX_SERVER client 1088 >/var/etc/trojan-ssr-socksdns.json
 			sed -i 's/\\//g' /var/etc/trojan-ssr-socksdns.json
 			$ncmd --config /var/etc/trojan-ssr-socksdns.json >/dev/null 2>&1 &
-			dns2socks 127.0.0.1:1088 208.67.222.222:443 127.0.0.1:5555 -q >/dev/null 2>&1 &
+			dns2socks 127.0.0.1:1088 8.8.8.8:53 127.0.0.1:5555 -q >/dev/null 2>&1 &
 		elif [ "$ntype" == "socks5" ]; then
 			/usr/share/shadowsocksr/genred2config.sh "/var/etc/redsocks-ssr-netflix.conf" socks5 tcp 4321 \
 			$(check_host $(uci_get_by_name $NETFLIX_SERVER server)) $(uci_get_by_name $NETFLIX_SERVER server_port) \
 			$(uci_get_by_name $NETFLIX_SERVER auth_enable 0) $(uci_get_by_name $NETFLIX_SERVER username) $(uci_get_by_name $NETFLIX_SERVER password)
 			$ncmd -c /var/etc/redsocks-ssr-netflix.conf >/dev/null 2>&1
 			microsocks -i 127.0.0.1 -p 1088 ssr-socksdns >/dev/null 2>&1 &
-			dns2socks 127.0.0.1:1088 208.67.222.222:443 127.0.0.1:5555 -q >/dev/null 2>&1 &
+			dns2socks 127.0.0.1:1088 8.8.8.8:53 127.0.0.1:5555 -q >/dev/null 2>&1 &
 		elif [ "$ntype" == "tun" ]; then
 			/usr/share/shadowsocksr/genred2config.sh "/var/etc/redsocks-ssr-netflix.conf" vpn $(uci_get_by_name $NETFLIX_SERVER iface "br-lan") 4321
 			$ncmd -c /var/etc/redsocks-ssr-netflix.conf >/dev/null 2>&1
 			microsocks -i 127.0.0.1 -p 1088 ssr-socksdns >/dev/null 2>&1 &
-			dns2socks 127.0.0.1:1088 208.67.222.222:443 127.0.0.1:5555 -q >/dev/null 2>&1 &
+			dns2socks 127.0.0.1:1088 8.8.8.8:53 127.0.0.1:5555 -q >/dev/null 2>&1 &
 		fi
 	fi
 
@@ -470,7 +472,7 @@ start_redir() {
 	fi
 	#deal with dns
 	local ssr_dns="$(uci_get_by_type global pdnsd_enable 0)"
-	local dnsstr="$(uci_get_by_type global tunnel_forward 208.67.222.222:443)"
+	local dnsstr="$(uci_get_by_type global tunnel_forward 8.8.8.8:53)"
 	local dnsserver=$(echo "$dnsstr" | awk -F ':' '{print $1}')
 	local dnsport=$(echo "$dnsstr" | awk -F ':' '{print $2}')
 	if [ "$ssr_dns" != "0" ]; then # not use custom dns service
