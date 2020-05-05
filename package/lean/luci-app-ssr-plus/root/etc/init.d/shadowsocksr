@@ -279,8 +279,8 @@ start_pdnsd() {
 		max_ttl=1w;
 		timeout=10;
 		neg_domain_pol=on;
-		proc_limit=2;
-		procq_limit=8;
+		proc_limit=4;
+		procq_limit=16;
 		par_queries=2;
 		}
 		server{
