@@ -267,7 +267,7 @@ start_pdnsd() {
 	fi
 	cat <<-EOF >/var/etc/pdnsd.conf
 		global{
-		perm_cache=32;
+		perm_cache=36;
 		cache_dir="/var/pdnsd";
 		pid_file="/var/run/pdnsd.pid";
 		run_as="nobody";
@@ -281,12 +281,12 @@ start_pdnsd() {
 		neg_domain_pol=on;
 		proc_limit=2;
 		procq_limit=8;
-		par_queries=1;
+		par_queries=2;
 		}
 		server{
 		label="ssr-usrdns";
 		ip=208.67.222.222,208.67.220.220;
-		port=5353;
+		port=443;
 		timeout=6;
 		uptest=none;
 		interval=10m;
