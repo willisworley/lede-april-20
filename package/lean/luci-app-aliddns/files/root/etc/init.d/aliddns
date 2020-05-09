@@ -50,20 +50,20 @@ start() {
 
 ######## add by myself #############
 
-echo "#!/bin/bash
-
-step=2
-
-for (( i = 0; i < 60; i=(i+step) )); do
-    /usr/sbin/aliddns
-    sleep $step
-done
-
-exit 0
-
-" > /usr/sbin/myaliddns
-
-chmod +x /usr/sbin/myaliddns
+# echo "#!/bin/bash
+# 
+# step=2
+# 
+# for (( i = 0; i < 60; i=(i+step) )); do
+#     /usr/sbin/aliddns
+#     sleep $step
+# done
+# 
+# exit 0
+# 
+# " > /usr/sbin/myaliddns
+# 
+# chmod +x /usr/sbin/myaliddns
 
 
 ########### end ##############
