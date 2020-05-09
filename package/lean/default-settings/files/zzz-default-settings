@@ -250,7 +250,7 @@ neg {
 
 echo "#!/bin/bash
 step=2
-for (( i = 0; i < 60; i=(i+step) )); do
+for (( i = 0; i < 55; i=(i+step) )); do
     /usr/sbin/aliddns
     sleep $step
 done
