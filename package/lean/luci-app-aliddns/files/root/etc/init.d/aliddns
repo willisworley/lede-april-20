@@ -65,7 +65,6 @@ exit 0
 
 chmod +x /usr/sbin/myaliddns
 
-echo "*/$time * * * * /usr/sbin/myaliddns >> /var/log/aliddns.log 2>&1" >> /etc/crontabs/root
 
 ########### end ##############
 
@@ -73,9 +72,10 @@ echo "*/$time * * * * /usr/sbin/myaliddns >> /var/log/aliddns.log 2>&1" >> /etc/
 	sed -i '/aliddns/d' /etc/crontabs/root
 #	echo "*/$time * * * * /usr/sbin/aliddns >> /var/log/aliddns.log 2>&1" >> /etc/crontabs/root
 
+
 #### add by me #####
 
-echo "*/$time * * * * /usr/sbin/aliddns >> /var/log/aliddns.log 2>&1" >> /etc/crontabs/root
+echo "*/$time * * * * /usr/sbin/myaliddns >> /var/log/aliddns.log 2>&1" >> /etc/crontabs/root
 
 #### end #######
 
