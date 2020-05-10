@@ -14,6 +14,18 @@ Welcome to Lean's  git source of OpenWrt and packages
 -
 1. 首先装好 Ubuntu 64bit，推荐  Ubuntu  18 LTS x64
 
+### 用root 用户编译 固件
+
+解决方法：
+在/etc/profile中添加：
+
+export FORCE_UNSAFE_CONFIGURE=1
+
+然后编译配置文件使之生效
+
+source /etc/profile
+
+
 2. 命令行输入 `sudo apt-get update` ，然后输入
 `
 sudo apt-get -y install build-essential asciidoc binutils bzip2 gawk gettext git libncurses5-dev libz-dev patch python3.5 unzip zlib1g-dev lib32gcc1 libc6-dev-i386 subversion flex uglifyjs git-core gcc-multilib p7zip p7zip-full msmtp libssl-dev texinfo libglib2.0-dev xmlto qemu-utils upx libelf-dev autoconf automake libtool autopoint device-tree-compiler g++-multilib antlr3 gperf
