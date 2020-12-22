@@ -33,7 +33,7 @@ sudo apt-get -y install build-essential asciidoc binutils bzip2 gawk gettext git
 
 3. 使用 `git clone https://github.com/willisworley/lede-april-20.git` 命令下载好源代码，然后 `cd lede-april-20` 进入目录
 
-4. ```bash
+```bash
    ./scripts/feeds update -a
    ./scripts/feeds install -a
    make menuconfig
@@ -48,8 +48,8 @@ sudo apt-get -y install build-essential asciidoc binutils bzip2 gawk gettext git
     ```
     
    
-   ```bash
-   cd ./lede && ./scripts/feeds update -a && ./scripts/feeds install -a && rm -rf ./.config && cp ./0417-nosamba-x86.config ./.config && rm -rf ./package/lean/luci-app-dockerman && mkdir -p package/luci-lib-docker && wget https://raw.githubusercontent.com/lisaac/luci-lib-docker/master/Makefile -O package/luci-lib-docker/Makefile && mkdir -p package/luci-app-dockerman && wget https://raw.githubusercontent.com/lisaac/luci-app-dockerman/master/Makefile -O package/luci-app-dockerman/Makefile
+4.    ```bash
+   cd ./lede-april-20 && ./scripts/feeds update -a && ./scripts/feeds install -a && rm -rf ./.config && cp ./0417-nosamba-x86.config ./.config && rm -rf ./package/lean/luci-app-dockerman && mkdir -p package/luci-lib-docker && wget https://raw.githubusercontent.com/lisaac/luci-lib-docker/master/Makefile -O package/luci-lib-docker/Makefile && mkdir -p package/luci-app-dockerman && wget https://raw.githubusercontent.com/lisaac/luci-app-dockerman/master/Makefile -O package/luci-app-dockerman/Makefile
 
    ```
 
