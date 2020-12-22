@@ -33,7 +33,7 @@ sudo apt-get -y install build-essential asciidoc binutils bzip2 gawk gettext git
 
 3. 使用 `git clone https://github.com/willisworley/lede-april-20.git` 命令下载好源代码，然后 `cd lede-april-20` 进入目录
 
-```bash
+   ```bash
    ./scripts/feeds update -a
    ./scripts/feeds install -a
    make menuconfig
