@@ -141,3 +141,26 @@ the lack of case sensitiveness in the file system.
 ## Note: Addition Lean's private package source code in `./package/lean` directory. Use it under GPL v3.
 
 ## GPLv3 is compatible with more licenses than GPLv2: it allows you to make combinations with code that has specific kinds of additional requirements that are not in GPLv3 itself. Section 7 has more information about this, including the list of additional requirements that are permitted.
+
+
+## luci-app-ssr-plus备份
+
+https://github.com/supppig/luci-app-ssr-plus
+
+源自 https://github.com/coolsnowwolf/lede/ 最后一个版本，原版shadowsocksr.lua已被加密，无法安装，已修复，可编译。
+
+神秘代码：
+
+echo 0xDEADBEEF > /etc/config/google_fu_mode
+luci-app-ssr-plus
+This is a backup repoistory of luci-app-ssr-plus from Lean's OpenWrt project package.
+
+Lean's OpenWrt source:
+
+https://github.com/coolsnowwolf/lede/
+
+Source from tree: 2915c44a11ca0ee40b51ff5d9c18a0da1951e170
+
+Lean's luci-app-ssr-plus source (history):
+
+https://github.com/coolsnowwolf/lede/tree/2915c44a11ca0ee40b51ff5d9c18a0da1951e170/package/lean/luci-app-ssr-plus
