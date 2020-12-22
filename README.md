@@ -48,9 +48,9 @@ sudo apt-get -y install build-essential asciidoc binutils bzip2 gawk gettext git
     ```
     
    
-4.    ```bash
+4.    
+   ```bash
    cd ./lede-april-20 && ./scripts/feeds update -a && ./scripts/feeds install -a && rm -rf ./.config && cp ./0417-nosamba-x86.config ./.config && rm -rf ./package/lean/luci-app-dockerman && mkdir -p package/luci-lib-docker && wget https://raw.githubusercontent.com/lisaac/luci-lib-docker/master/Makefile -O package/luci-lib-docker/Makefile && mkdir -p package/luci-app-dockerman && wget https://raw.githubusercontent.com/lisaac/luci-app-dockerman/master/Makefile -O package/luci-app-dockerman/Makefile
-
    ```
 
 5. `make -j8 download v=s` 下载dl库（国内请尽量全局科学上网）`nohup make -j8 download v=s >>mylog.txt 2>&1 &`
