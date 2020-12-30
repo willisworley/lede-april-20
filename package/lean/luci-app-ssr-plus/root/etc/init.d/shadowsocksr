@@ -278,7 +278,7 @@ start_pdnsd() {
 		# use udp query if tcp query via proxy failed
 		#
 		query_method=tcp_udp;
-		min_ttl=2h;
+		min_ttl=1h;
 		max_ttl=1w;
 		timeout=10;
 		neg_domain_pol=on;
@@ -290,8 +290,12 @@ start_pdnsd() {
 		label="ssr-usrdns";
 		# Set default DNS to Google DNS, OpenDNS reduce lost packets.
 		#
-		ip=8.8.8.8,1.1.1.2;
-		port=53;
+		
+		#UncensoredDNS 
+		#5353
+		#
+		ip=89.233.43.71,91.239.100.100;
+		port=5353;
 		timeout=6;
 		uptest=none;
 		interval=10m;
@@ -301,7 +305,7 @@ start_pdnsd() {
 		label="open-usrdns";
 		# Set default DNS to Google DNS, OpenDNS Loss packets.
 		#
-		ip=1.1.1.1,8.8.4.4;
+		ip=8.8.8.8,1.1.1.2;
 		port=53;
 		timeout=6;
 		uptest=none;
