@@ -1,6 +1,8 @@
-欢迎来到Lean的Openwrt源码仓库！
+# 用户版已经够好用，server 版需要 follow 更新
+
+欢迎来到 Willis的Openwrt源码仓库！Fork From Lean!
 =
-Welcome to Lean's  git source of OpenWrt and packages
+Welcome to Willis'  git source of OpenWrt and packages
 =
 中文：如何编译自己需要的 OpenWrt 固件
 -
