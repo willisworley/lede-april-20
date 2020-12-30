@@ -1,6 +1,6 @@
 用户版已经够好用，server 版需要 follow 更新
 =
-中文：如何编译自己需要的 OpenWrt 固件
+如何编译自己需要的 OpenWrt 固件
 -
 注意：
 -
