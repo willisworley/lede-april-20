@@ -258,7 +258,7 @@ start_pdnsd() {
 	local usr_port="$2"
 	local tcp_dns_list="208.67.222.222"
 	[ -z "$usr_dns" ] && usr_dns="8.8.8.8"
-	[ -z "$usr_port" ] && usr_port="53"
+	[ -z "$usr_port" ] && usr_port="5353"
 	[ -d /var/etc ] || mkdir -p /var/etc
 	if [ ! -d /var/pdnsd ]; then
 		mkdir -p /var/pdnsd
@@ -280,7 +280,7 @@ start_pdnsd() {
 		query_method=tcp_udp;
 		min_ttl=1h;
 		max_ttl=1w;
-		timeout=10;
+		timeout=5;
 		neg_domain_pol=on;
 		proc_limit=4;
 		procq_limit=16;
@@ -294,9 +294,9 @@ start_pdnsd() {
 		#UncensoredDNS 
 		#5353
 		#
-		ip=89.233.43.71,91.239.100.100;
+		ip=208.67.222.222,89.233.43.71;
 		port=5353;
-		timeout=6;
+		timeout=5;
 		uptest=none;
 		interval=10m;
 		purge_cache=off;
@@ -305,9 +305,9 @@ start_pdnsd() {
 		label="open-usrdns";
 		# Set default DNS to Google DNS, OpenDNS Loss packets.
 		#
-		ip=8.8.8.8,1.1.1.2;
+		ip=1.1.1.1,8.8.4.4;
 		port=53;
-		timeout=6;
+		timeout=5;
 		uptest=none;
 		interval=10m;
 		purge_cache=off;
