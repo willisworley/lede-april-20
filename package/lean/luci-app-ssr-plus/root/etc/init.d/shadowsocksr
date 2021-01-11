@@ -257,7 +257,7 @@ start_pdnsd() {
 	local usr_dns="$1"
 	local usr_port="$2"
 	local tcp_dns_list="208.67.222.222"
-	[ -z "$usr_dns" ] && usr_dns="8.8.8.8"
+	[ -z "$usr_dns" ] && usr_dns="89.233.43.71"
 	[ -z "$usr_port" ] && usr_port="5353"
 	[ -d /var/etc ] || mkdir -p /var/etc
 	if [ ! -d /var/pdnsd ]; then
