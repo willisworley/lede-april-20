@@ -97,14 +97,14 @@ $(eval $(call Download,ath10k-firmware-qca9887-ct-htt))
 QCA99X0_FIRMWARE_FILE_CT:=firmware-5-ct-full-community-12.bin-lede.015
 define Download/ath10k-firmware-qca99x0-ct
   $(call Download/ct-firmware,QCA99X0,ath10k-10-4b)
-  HASH:=edebe2f6f169cdd05c81a8a78156fb3426a66f415e7946af2ae4b7310fca5fe3
+  HASH:=88abfee7f98e2468aee233087f3c26111ea5c2c9867aaef4f5463db04fe6aea8
 endef
 $(eval $(call Download,ath10k-firmware-qca99x0-ct))
 
 QCA99X0_FIRMWARE_FILE_CT_HTT:=firmware-5-ct-full-htt-mgt-community-12.bin-lede.015
 define Download/ath10k-firmware-qca99x0-ct-htt
   $(call Download/ct-firmware-htt,QCA99X0,ath10k-10-4b)
-  HASH:=1ef67fb07da9082886e4dd554dfc19256e10b500faf9e4b2a5774d0238130bae
+  HASH:=5cbd05facab72526ee50efa37a196b571e06f122958fa2494e94836df0b7dda5
 endef
 $(eval $(call Download,ath10k-firmware-qca99x0-ct-htt))
 
