@@ -33,6 +33,7 @@ sudo apt-get -y install build-essential asciidoc binutils bzip2 gawk gettext git
 
    ```bash
    ./scripts/feeds update -a && ./scripts/feeds install -a
+   ./scripts/feeds update -a && ./scripts/feeds install -a && rm -rf ./.config && cp ./0417-nosamba-x86.config ./.config
    make menuconfig
    ```
    
