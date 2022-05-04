@@ -741,6 +741,18 @@ sed -i '|<td><%=pcdata(boardinfo.model or "?")%> <%=luci.sys.exec("cat /etc/benc
 
 
 
+## 使ttyd 支持远程操作，删除绑定 LAN
+
+rm -rf /etc/config/ttyd
+
+echo "config ttyd
+        option command '/bin/login'
+
+" >/etc/config/ttyd
+
+## 使ttyd 支持远程操作，删除绑定 LAN
+
+
 
         
 
